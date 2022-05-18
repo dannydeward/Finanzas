@@ -1,0 +1,63 @@
+{% extends "finanzasapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+     
+        <section>
+            <section class="page-section about-heading">
+                <div class="container">
+                    <!--<img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="assets/img/about.jpg" alt="..." />-->
+                    <div class="about-heading-content">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-10 mx-auto">
+                                <p></p>
+                                    <!--<h2 class="section-heading mb-4">
+                                        <span class="section-heading-upper">La planificacion financiera</span>
+                                        <span class="section-heading-lower" style="font-weight: bold;">El Camino para ser libre de deudas</span>
+                                    </h2>-->
+                                <p>
+
+                                    <span class="section-heading-upper"><b>TUS DEUDAS CONSUMEN TUS INGRESOS, DEJANDOTE SALDO NEGATIVO A  FINAL DE CADA MES</b></span></p>
+
+                                    🚩 Has pensado que vivir sin deudas es imposible.</p>
+                                    🚩Que todas las teorías de la libertad financiera son fantasía.</p>
+                                    🚩 Que solo podras difrutar lo que te gusta cuando te jubiles </p>
+
+
+                                Te cuento que vivir sin deudas  que te consuman el presupuesto puede ser real. </p>
+
+                                Todos sabemos que cuando nos endeudamos, entramos a un círculo que se consume todos  nuestros  ingresos y que conocemosco  <u>ciclo de las deudas</u>: </p>
+                                
+                               
+                               
+                               <img src="{% static 'finanzasapp/assets/img/CICLO.png/' %}"> </p>
+                               
+                                                                                          
+                                                           
+                                                                                               
+                               Cunado entramos en  este circulo , se  no complica  salir, nos vemos  obligados  día a día a seguir en empleos que no nos gustan, inclusoa tener dos empleos,  nos negamos aventuras, ratos de entretenimiento, viajes y sueños, 
+                               nos alejamos de la familia, solo dedicados a satisfacer el adiptivo ciclo que nos hace creer que tenemos seguridad , consolándonos con la idea que cuando nos jubilemos podremos hacer esas cosas.</p> 
+                                
+                                Te cuento un secreto: LA JUBILACION NO EXISTE.</p>
+                                
+                                Ese sueño se ha desvanecido en inflación, malos salarios, la gente cuando se retira pasa a ganar miserias que apenas le alcanzan para sus medicinas, comienza a depender de otros y sus sueños se van a un bote de tristeza y frustración.</p> 
+
+                                Sin embargo,  si aprendes a planificarte podrás romper el ciclo de deudas, lo que  te permitirá hacer inversiones, crear ingresos pasivos, que te ayudaran a retirarte antes de tiempo para disfrutar de las cosas que quieres vivir. 
+                                En esta página puedes hacer tu <a href="{% url 'calculadora' %}"> presupuesto </a>mensual, encontrar <a href="{% url 'blog' %}">artículos</a> sobre finanzas  entre otras cosas </p>
+
+                                Recuerda  que la planificación es la base de la Libertad Financiera y esta solo se consigue, si estas libre de deudas </p>
+                                 
+                                
+                                       
+                              <div>
+
+                                <img src="{% static 'finanzasapp/assets/img/brindis.jpg' %}" style="width:100%;">
+                              </div>                                  </div>
+                                                                                    </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+       
+        {% endblock %}

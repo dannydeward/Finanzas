@@ -1,0 +1,144 @@
+{% extends "finanzasapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<center><div style="padding-left: 15px;">
+    <p> A continuacion encontrara una calculadora donde podra armar su presupuesto, en los espacios puede colocar los ingresos y gastos, de forma semanal, mensual, o anual.  Recuerde que, los ingresos y gastos deben estar expresados en el mismo tiempo, semanal,anual etc.</p>
+    <p> Recomendamos para una mejor visualizacion, hacer el presupuesto mensual</p>
+</div></center>
+<p><script src="{% static 'finanzasapp/js/budgetcalc.js'%}"></script></p>
+<center><form name="monthBudgFrm" action="">
+<table class="budget-calc">
+<thead>
+<tr>
+<th colspan="2"><u>Presupuesto</u></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th colspan="2" class="step"><u> Ingresos </u></th>
+</tr>
+<tr>
+<th>Ingreso mensual 1</th>
+ <td>$<input class="calcStpInpt" maxlength="7" name="Take_Home_Pay" size="8" type="text" placeholder="0" /></td>
+ </tr>
+<tr>
+<th>Ingreso mensual 2</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="Spouses_Take_Home_Pay" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Ingresos  adicionales</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="Other_Income" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th class="total">Total de los ingresos</th>
+<td class="buttons">$<input class="total" maxlength="7" name="Income_Total" readonly="readonly" size="8" type="text" placeholder="0" /><input onclick="CalcIncomeTotal();" type="button" value="Calcular el total" class="calc" /><input onclick="clearInc(form);" type="button" value="Borrar" class="clear-fields" /></td>
+</tr>
+<tr>
+<th colspan="2" class="step"><u> Gastos</u></th>
+</tr>
+ <tr>
+<th>Alquiler/Renta/hipoteca</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="rent_mortgage" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>expensas/condominios</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="homeowners_fees" size="8" type="text" placeholder="0" /></td>
+</tr>
+ <tr>
+<th><span>Impuestos sobre la propiedad</small></th>
+<td>$<input class="calcStpInpt" maxlength="7" name="property_tax" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Reparaciones/mantenimiento del hogar</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="home_repairs_maintenance" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Electricidad &amp; gas</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="electric_gas" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Agua &amp; drenaje</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="water_sewer" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Tel &amp; Móvil</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="phone_cell" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Cable &amp; Internet</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="cable_internet" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Transporte</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="gasoline" size="8" type="text" placeholder="0" /></td>
+</tr>
+<th>Utencilios del hogar</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="groceries_household" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Ropa para la familia</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="clothing" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Comidas fuera</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="meals_out" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th>Barbería &amp; Salón de belleza</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="barber_beauty_shop" size="8" type="text" placeholder="0" /></td>
+</tr>
+ <tr>
+<th>Entretenimiento</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="hobbies_sports" size="8" type="text" placeholder="0" /></td>
+</tr>
+ <tr>
+<th>Otros gastos</th>
+<td>$<input class="calcStpInpt" maxlength="7" name="other_expenses" size="8" type="text" placeholder="0" /></td>
+</tr>
+<tr>
+<th class="total"><u>Total de gastos</u></th>
+<td class="buttons">$<input type="text" class="total negative" maxlength="7" name="Expenses_Total" readonly="readonly" size="8" placeholder="0" /><input onclick="CalcMonthlyExp();" type="button" value="Calcular el total" class="calc" /><input onclick="clearExpenses(form)" type="button" value="Borrar" class="clear-fields" /></td>
+</tr>
+<tr>
+<th colspan="2" class="step"><u>Diferencia </u></th>
+</tr>
+<tr>
+<th class="total">Total del ingreso :</th>
+<td>$<input type="text" class="total" maxlength="7" name="Income_Total2" readonly="readonly" size="8" placeholder="0" /></td>
+</tr>
+<tr>
+<th class="total">Total de los gastos:</th>
+<td>$<input type="text" class="total negative" maxlength="7" name="Expenses_Total2" readonly="readonly" size="8" placeholder="0" /></td>
+</tr>
+<tr>
+<th class="total">Superávit (+) o déficit (-) mensual:</th>
+<td class="buttons">$<input type="text" maxlength="7" name="Difference_Total" readonly="readonly" size="8" class="total" placeholder="0" /><input onclick="CalcDifferenceTotal();" type="button" value="Calcular el total" class="calc" /> <input onclick="clearDiff(form);" type="button" value="Borrar" class="clear-fields" /></td>
+</tr>
+</tbody>
+</table>
+</form></center>
+
+
+<div  style="padding-left: 15px;">
+
+<p>Una vez que termino su presupuesto, puede considerar lo siguiente a forma de analizis:</p>
+
+<p>.-Si la diferencia es positiva, esta gastando menos de lo que gana por lo que deberia considerar invertir esa diferencia</p>
+.-Si la diferencia es  negativa, esta gastando mas de lo que gana, por lo que debe aprender a planificar sus finanzas y distribuir sus recursos</p>
+para porder pasar a tener mas ganancias que gastos</p>
+.-Si la diferecia es 0, sus gastos e ingresos son iguales, lo que indica que debe mejorar sus ingresos 0 revisar sus gastos para que los ingresos
+pasen a ser positivos</p>
+
+<p>Como conclusion, la idea es que pueda organizarse financieramente, reducir sus deudas y gastons innecesarios, para que sus ingresos puedan ser mayores a sus gastos
+y con esa utilidad pueda invertir en construir un futuro, libre de deudas, que le ingresos pasivos, asi uste podra  hace rlo que mas le gusta
+junto a su familia, sin preocuparse por sus ingresos mensuales ya quee starn cubiertos</p>
+
+<p> si esto es lo que quiere, debe comenzar hoy</p>
+
+</div>
+</section>
+
+{% endblock %}

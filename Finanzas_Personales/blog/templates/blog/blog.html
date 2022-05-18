@@ -1,0 +1,75 @@
+{% extends "finanzasapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="page-section cta">
+    <section class="page-section about-heading">
+        <div class="container">
+            <!--<img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="assets/img/about.jpg" alt="..." />-->
+                
+                          
+
+  {% for post in posts %}
+         
+         
+  <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text text-justificy ">
+     <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style= "width:30%">
+     <span class="section-heading-lower" style="align-items: center; color: white"><u>{{post.titulo}}</u></span>
+     <p></p>
+     <span class="section-heading-upper"style="align-items: center; color:white">{{post.contenido}}</span>
+         
+            
+    
+  <div style="text-align: left;">
+  
+    autor: {{post.autor}}     
+  
+          </div>
+  
+                </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+   
+   {% endfor %} <!--este bucle for anidado, nos muestra las publicaciones en el blog y las categorias a las que pertenece-->
+   Categorias: 
+   
+  <div style=" width:75%; text-align: center; color:white;" >
+  
+      {% for post in posts %}
+  
+  
+  {% for categoria in post.categorias.all%}
+  
+  <a href="{% url 'categoria' categoria.id %}">{{categoria.nombre}}</a>&nbsp;&nbsp;&nbsp; <!--el href no sirve paraq darle hiper vinculo a las categorias-->
+  
+  {% endfor %}
+  {% endfor %}
+  
+  </div>
+  
+  
+   </section>
+  
+                            
+                            
+                            
+                            
+                            
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

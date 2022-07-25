@@ -1,4 +1,4 @@
-# Finanzasapp
+# Finanzas
 es  una web creada con django, sobre finanzas personales 
 
 #skill
